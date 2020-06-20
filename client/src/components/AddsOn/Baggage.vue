@@ -82,7 +82,7 @@ import axios from "axios";
 import Alert from "../Alert";
 
 let http = axios.create({
-    baseURL: "http://localhost:9000/api",
+    baseURL: "http://172.17.0.202:9000/api",
     timeout: 120000,
     headers: {
         "Access-Control-Allow-Origin": "*",
@@ -130,7 +130,7 @@ export default {
         saveBaggage() {
             http
                 .post(
-                    "http://localhost:9000/api/adds-on/" +
+                    "http://172.17.0.202:9000/api/adds-on/" +
                     this.form.maxWeight +
                     "/" +
                     this.form.price +
@@ -154,7 +154,7 @@ export default {
                 });
         },
         deleteBag(id) {
-            http.delete("http://localhost:9000/api/adds-on/" + id).then(res => {
+            http.delete("http://172.17.0.202:9000/api/adds-on/" + id).then(res => {
                 console.log(res.data);
                 this.getBaggage();
                 //  alert("ลบข้อมูลเสร็จสิ้น");
@@ -162,7 +162,7 @@ export default {
         },
         getBaggagetype() {
             http
-                .get("http://localhost:9000/api/baggage-type/")
+                .get("http://172.17.0.202:9000/api/baggage-type/")
                 .then(bag => {
                     this.btypename = bag.data;
                 })
@@ -173,7 +173,7 @@ export default {
         getBaggage() {
             http
                 .get(
-                    "http://localhost:9000/api/adds-on/airport/" + this.filterAirportId
+                    "http://172.17.0.202:9000/api/adds-on/airport/" + this.filterAirportId
                 )
                 .then(res => {
                     this.baggages = res.data.reverse();
@@ -182,7 +182,7 @@ export default {
         },
         getImage() {
             http
-                .get("http://localhost:9000/api/baggage-image")
+                .get("http://172.17.0.202:9000/api/baggage-image")
                 .then(bimage => {
                     this.images = bimage.data;
                 })
@@ -192,7 +192,7 @@ export default {
         },
         getAirport() {
             http
-                .get("http://localhost:9000/api/airport")
+                .get("http://172.17.0.202:9000/api/airport")
                 .then(aerodrom => {
                     this.name = aerodrom.data;
                 })

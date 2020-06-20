@@ -48,7 +48,7 @@
         
     // getBaggagetype() {
     //   axios.http
-    //     .get("http://localhost:9000/baggagetype")
+    //     .get("http://172.17.0.202:9000/baggagetype")
     //     .then(bag => {
     //       this.btypename = bag.data;
     //     })
@@ -59,7 +59,7 @@
 
     // getImage() {
     //   axios.http
-    //     .get("http://localhost:9000/bagimage")
+    //     .get("http://172.17.0.202:9000/bagimage")
     //     .then(bimage => {
     //       this.imagename = bimage.data;
     //     })

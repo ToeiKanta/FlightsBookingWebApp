@@ -75,7 +75,7 @@
 import axios from "axios";
 import Alert from '../Alert'
 let http = axios.create({
-  baseURL: "http://localhost:9000/api",
+  baseURL: "http://172.17.0.202:9000/api",
   timeout: 120000,
   headers: {
     "Access-Control-Allow-Origin": "*",
@@ -149,7 +149,7 @@ export default {
     },
     getPromotion() {
       http
-        .get("http://localhost:9000/api/promotion/")
+        .get("http://172.17.0.202:9000/api/promotion/")
         .then(res => {
           this.promotions = res.data;
         })
@@ -159,14 +159,14 @@ export default {
     },
     getPromotionImage() {
       http
-        .get("http://localhost:9000/api/promotion-image")
+        .get("http://172.17.0.202:9000/api/promotion-image")
         .then(res => {
           this.promotionImages = res.data;
         });
     },
     getPromotionStatus() {
       http
-        .get("http://localhost:9000/api/promotion-status")
+        .get("http://172.17.0.202:9000/api/promotion-status")
         .then(res => {
           this.promotionStatus = res.data;
         });

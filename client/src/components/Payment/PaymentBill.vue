@@ -94,7 +94,7 @@ import UserFooter from "../components/UserFooter";
 var JsBarcode = require("jsbarcode");
 import axios from "axios";
 let axiosInstance = axios.create({
-  baseURL: "http://localhost:9000/api",
+  baseURL: "http://172.17.0.202:9000/api",
   timeout: 120000,
   headers: {
     "Access-Control-Allow-Origin": "*",
