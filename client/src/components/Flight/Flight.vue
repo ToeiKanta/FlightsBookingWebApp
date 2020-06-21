@@ -123,7 +123,7 @@ import Alert from '../Alert';
 import moment from 'moment';
 
 let http = axios.create({
-    baseURL: 'http://172.17.0.202:9000/api',
+    baseURL: process.env.BACKEND_URL+'/api',
     timeout: 120000,
     headers: {
         'Access-Control-Allow-Origin': '*',
@@ -190,7 +190,7 @@ export default {
     methods: {
         getFlight() {
             http
-                .get('http://172.17.0.202:9000/api/flight')
+                .get(process.env.BACKEND_URL+'/api/flight')
                 .then(response => {
                     this.flight = response.data
                 })
@@ -200,7 +200,7 @@ export default {
         },
         getAirport() {
             http
-                .get("http://172.17.0.202:9000/api/airport")
+                .get(process.env.BACKEND_URL+"/api/airport")
                 .then(response => {
                     this.airports = response.data;
                     console.log(this.airports)
@@ -217,7 +217,7 @@ export default {
         },
         getAirplane() {
             http
-                .get("http://172.17.0.202:9000/api/airplane")
+                .get(process.env.BACKEND_URL+"/api/airplane")
                 .then(response => {
                     this.airplanes = response.data;
                     console.log(this.airplanes);
@@ -228,7 +228,7 @@ export default {
         },
         deleteFlight(id) {
             http
-                .delete("http://172.17.0.202:9000/api/flight/id/" + id).then(res => {
+                .delete(process.env.BACKEND_URL+"/api/flight/id/" + id).then(res => {
                     console.log(res.data);
                     this.getFlight();
                     this.deleteSuccess = true;
@@ -241,7 +241,7 @@ export default {
         saveFlight() {
             http({
                     method: 'post',
-                    url: "http://172.17.0.202:9000/api/flight/create",
+                    url: process.env.BACKEND_URL+"/api/flight/create",
                     data: {
                         "price": this.flights.price,
                         "departDate": moment(this.flights.departDate).format("YYYY-MM-DD HH:mm").toString(),

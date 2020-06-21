@@ -203,7 +203,7 @@
 import axios from "axios";
 var numeral = require("numeral");
 let http = axios.create({
-    baseURL: "http://172.17.0.202:9000/api",
+    baseURL: process.env.BACKEND_URL+"/api",
     timeout: 120000,
     headers: {
         "Access-Control-Allow-Origin": "*",
@@ -272,7 +272,7 @@ export default {
         getFBooking() {
             http
                 .get(
-                    "http://172.17.0.202:9000/api/flight-booking/pending"
+                    process.env.BACKEND_URL+"/api/flight-booking/pending"
                 )
                 .then(res => {
                     this.flightBookings = res.data;
@@ -284,7 +284,7 @@ export default {
         getPay() {
             http
                 .get(
-                    "http://172.17.0.202:9000/api/payment"
+                    process.env.BACKEND_URL+"/api/payment"
                 )
                 .then(res => {
                     this.payment = res.data;
